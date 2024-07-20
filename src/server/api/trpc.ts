@@ -4,13 +4,8 @@ import { ZodError } from "zod";
 import { db } from "@/server/db";
 import { cookies } from "next/headers";
 import jwt, { type JwtPayload } from "jsonwebtoken";
-import type { NextRequest, NextResponse } from "next/server";
 
-export const createTRPCContext = async (opts: {
-  req: NextRequest;
-  res: NextResponse;
-  headers: Headers;
-}) => {
+export const createTRPCContext = async (opts: { headers: Headers }) => {
   return {
     db,
     ...opts,
