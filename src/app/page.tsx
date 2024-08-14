@@ -14,7 +14,7 @@ export default function Home() {
     screenRef.current = <Auth />;
   } else if (query.isSuccess && query.data.user) {
     screenRef.current = <Main interests={query.data.user.interests} />;
-  } else if (query.isPending) {
+  } else if (query.isFetching) {
     screenRef.current = (
       <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl">
         Loading...
